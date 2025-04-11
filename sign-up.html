@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>SkillMatch - Sign Up</title>
+
+        <meta name="description" content="Create your SkillMatch account to access skill learning features.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            .highlight {
+                color: navy;
+                font-weight: bold;
+            }
+            h1 {
+                font-size: 32px;
+                margin-top: 10px;
+                font-family: Arial;
+            }
+
+            form p {
+                margin: 20px 0;
+            }
+
+            #title {
+                text-transform: uppercase;
+                color: navy;
+                margin-left: 20px;
+            }
+
+
+            form p input{
+                font-size: large;
+            }
+
+            footer p a:link,
+            footer p a:hover,
+            footer p a:active {
+                color: darkgoldenrod;
+            }
+
+
+            .form-box{
+                width: 65%;
+                background-color: aliceblue;
+                margin: 50px auto; 
+                padding: 40px;
+                border: 1px solid gray;
+                border-radius: 10px;
+                text-align: center;   
+                font-size: larger;   
+                font-weight: bold;      
+            }
+
+            
+            
+        </style>
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo">
+              <img src="logo.png" alt="SkillMatch Logo" />
+              skillMatch
+            </div>
+            <div class="menu">
+              <a href="home.html">Home</a>
+              <a href="skills-selection.html">Choose a Coach</a>
+              <a href="table.html">My Schedule</a>
+              <a href="login.html" ><strong>Sign In</strong></a>
+              <a href="signup.html">Sign Up</a>
+              <a href="contactUS.html"><strong>Contact Us</strong></a>
+            </div>
+          </header>
+
+        <br/>
+        <br/>
+        <hr/>
+
+
+        <div style="text-align: center;">
+            <img src = "logo.png" width="20%" alt="SkillMatch Logo"/>
+            <h1 id="title">Sign-up</h1>
+        </div>
+
+
+        <div class=" box  form-box">
+            <form action="https://httpbin.org/get" method="get">
+                <p>
+                    <label>Email: </label>
+                    <input type="email" name="email" placeholder="Enter your email" maxlength="30" required style="font-size:large;"/>
+                </p>
+
+
+
+                <p>
+                    <label>Password: </label>
+                    <input type="password" name="password" placeholder="Create a password" maxlength="30" required style="font-size:large;"/>
+                </p>
+                <p>
+                    <label>Confirm Password: </label>
+                    <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="30" required style="font-size:large;"/>
+                </p>
+
+
+                <p>
+                    <label>Your Age: </label><br/>
+                    <input type="radio" name="age" value="0-15"> 0–15
+                    <input type="radio" name="age" value="16-19" checked> 16–19
+                    <input type="radio" name="age" value="20-29"> 20–29
+                    <input type="radio" name="age" value="30+"> +30
+                </p>
+
+
+                <p>
+                    <label>Your Region: </label>
+                    <select name="region" style="font-size:large;" required>
+                        <option>Middle East</option>
+                        <option>Southern Africa</option>
+                        <option>Europe</option>
+                        <option>Asia Pacific</option>
+                        <option>Americas</option>
+                    </select>
+                </p>
+
+
+
+                <p>
+                    <label>Country: </label>
+                    <input type="text" name="country" placeholder="Your country" style="font-size:large;"/>
+                </p>
+
+                <input type="submit" value="Register" style="font-size:large;"/>
+            </form>
+        </div>
+
+
+        <footer class="footer">
+            <p>&copy; 2025 <a href="mailto:abd@squ.edu.om">SkillMatch</a>. All rights reserved.</p>
+        </footer>
+
+    </body>
+</html>
