@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SkillMatch – Skill Selection</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+    }
+
+    header {
+      background-color: rgb(241, 167, 9);
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .logo img {
+      height: 32px;
+      margin-right: 10px;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #006c8c;
+    }
+
+    .hero {
+      background-image: url(img2.webp);
+      background-size: cover;
+      background-position: center;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 1.2rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .coach-card {
+      background: #fff;
+      border: 1px solid #e1e1e1;
+      padding: 2rem;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .coach-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #007b8f;
+    }
+
+    .coach-name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 0.3rem;
+    }
+
+    .coach-quote {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      margin: 0 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: white;
+      border: none;
+    }
+
+    .like-btn {
+      background-color: #4CAF50;
+    }
+
+    .dislike-btn {
+      background-color: #f44336;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin: 3rem 0 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="SkillMatch Logo" />
+    skillMatch
+  </div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="skills-selection.html"><strong>Choose a Coach</strong></a>
+    <a href="table.html">My Schedule</a>
+    <a href="login.html">Sign in</a>
+    <a href="signup.html">Sign Up</a>
+    <a href="contact.html"> contact us</a>
+  </nav>
+</header>
+
+<div class="hero">
+  Problem Solving
+</div>
+
+<p class="section-title">Please choose your coach to practice your new skill...</p>
+
+<div class="coach-card">
+  <img src="img1.jpeg" alt="Coach Photo">
+  <div class="coach-name">Almukhtar</div>
+  <div class="coach-quote">web development </div>
+  
+  <div class="buttons">
+    <a href="#" class="btn dislike-btn">👎 Dislike</a>
+    <a href="#" class="btn like-btn">👍 Like</a>
+  </div>
+</div>
+
+<footer>
+    <a href="contactUS.html"> contact us</a>
+    &copy; 2025 SkillMatch. All rights reserved.
+</footer>
+
+</body>
+</html>
