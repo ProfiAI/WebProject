@@ -1,8 +1,4 @@
-footer{
-    background-color: lightyellow;
-    color: black;
-    padding: 15px;
-}
+
 
 
 header {
@@ -40,6 +36,21 @@ header {
   .menu a.active {
     font-weight: bold;
   }
+
+
+
+footer{
+    background-color: lightyellow;
+    color: black;
+    padding: 15px;
+}
+
+
+footer p a:link,
+footer p a:hover,
+footer p a:active {
+    color: darkgoldenrod;
+}
 
 
   *{font-family: "Arial", "Verdana", "Trebuchet MS", "Georgia";}
