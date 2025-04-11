@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>SkillMatch – Contact Us</title>
   <link rel="stylesheet" href="style.css">
+  <title>SkillMatch – Skill Selection</title>
   <style>
     body {
       margin: 0;
@@ -64,51 +63,60 @@
       margin: 2rem 0 1rem;
     }
 
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: #fff;
+    .coach-card {
+      border: 1px solid #e1e1e1;
       padding: 2rem;
+      text-align: center;
       border-radius: 10px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      max-width: 400px;
+      margin: 0 auto;
     }
 
-    .contact-form label {
-      display: block;
-      margin-top: 1rem;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: #444;
+    .coach-card img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #007b8f;
     }
 
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    .contact-form textarea {
-      resize: vertical;
-      height: 120px;
-    }
-
-    .contact-form button {
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.6rem;
-      background-color: rgb(241, 167, 9);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
+    .coach-name {
       font-weight: bold;
-      cursor: pointer;
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 0.3rem;
     }
 
-    .contact-form button:hover {
-      background-color: #e19d00;
+    .coach-quote {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .buttons {
+      margin-top: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      margin: 0 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      color: white;
+      border: none;
+    }
+
+    .like-btn {
+      background-color: #4CAF50;
+    }
+
+    .dislike-btn {
+      background-color: #f44336;
     }
 
     footer {
@@ -128,40 +136,34 @@
   </div>
   <nav>
     <a href="home.html">Home</a>
-    <a href="skills-selection.html">Choose a Coach</a>
+    <a href="skills-selection.html"><strong>Choose a Coach</strong></a>
     <a href="table.html">My Schedule</a>
     <a href="login.html">Sign in</a>
     <a href="signup.html">Sign Up</a>
-    <a href="contactUS.html"><strong>Contact Us</strong></a>
+    <a href="contactUS.html"> contact us</a>
   </nav>
 </header>
 
 <div class="hero">
-  Contact Us
+  Problem Solving
 </div>
 
-<p class="section-title">We'd love to hear from you!</p>
+<p class="section-title">Please choose your coach to practice your new skill...</p>
 
-<div class="contact-form">
-  <form action="#" method="post">
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name" required>
-
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email" required>
-
-    <label for="subject">Subject</label>
-    <input type="text" id="subject" name="subject" placeholder="What is this about?" required>
-
-    <label for="message">Message</label>
-    <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
-
-    <button type="submit">Send Message</button>
-  </form>
+<div class="coach-card" style="background: #fff;"> 
+  <img src="img1.jpeg" alt="Coach Photo">
+  <div class="coach-name">Almukhtar</div>
+  <div class="coach-quote">web development </div>
+  
+  <div class="buttons">
+    <a href="#" class="btn dislike-btn">👎 Dislike</a>
+    <a href="#" class="btn like-btn">👍 Like</a>
+  </div>
 </div>
 
 <footer>
-  &copy; 2025 SkillMatch. All rights reserved.
+    <a href="contactUS.html"> contact us</a>
+    &copy; 2025 SkillMatch. All rights reserved.
 </footer>
 
 </body>
