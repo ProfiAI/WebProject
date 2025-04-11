@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type = "text/css">
+                /* Reset */
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* General Styles */
+        body {
+            background-color: #fff;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        div {margin: 0px;}
+
+        div.header {width:initial; 
+                    border: 1px groove  rgb(0, 0, 0);
+                    background-color: rgb(249, 251, 251);
+                    padding: 0px; 
+                    border-radius: 10px;
+                    align-items: center;}
+                    
+        a {color:rgb(0, 0, 0);
+            text-decoration: none; 
+            margin-left: 5px; }
+
+        div ul{ list-style: none; 
+                display: flex; 
+                gap: 10px;
+                float: right}
+
+        header {
+            background-color: rgb(241, 167, 9);
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1rem;
+        }
+
+
+        .logo img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+            float: left
+        }
+
+        .logo span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .search-btn {
+            background-color: transparent;
+            border: none;
+            color: #333;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+
+        /* section skills it is photo */
+        .skills {
+            background: linear-gradient(rgba(0,0,0, 0.2),rgba(255, 255, 255, .7)), url('Photos/skills_cover-1.jpg');
+            background-size:cover;
+            background-position: center;
+            padding: 0px 0;
+            text-align: left;
+            height:300px;
+            background-color: rgba(171, 80, 80, 0.5); 
+        }
+
+        .skills h1 {
+            font-size: 48px;
+            color: rgb(15, 34, 71);
+            margin-bottom: 10px;
+            text-align: center;
+            vertical-align:middle;
+            margin-top: 50px;
+        }
+
+        .underline {
+            width: 100px;
+            height: 5px;
+            background-color: #fdd700;
+            margin: 10px auto;
+        }
+
+        /* body and the content */
+        .content {margin: 5px; display:inline; width:300px; border: 1px groove  rgb(0, 0, 0);
+            background-color: rgb(249, 251, 251);
+            padding: 0px; 
+            border-radius: 10px;}
+        .content img{height: 300px; float: left}
+        .content div{display:grid;}
+        .content h1{color:rgb(5, 83, 83)}
+
+        /* Table */
+        table{border:3px; background-color:rgb(241, 167, 9);}
+        table td{padding: 5px}
+        table caption{letter-spacing: 7px; font-weight: bold;}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+   
+    <section class="skills">
+        <header style="display: flex; justify-content: space-between;">
+            <div style="align-items: center; display: flex">    
+                <img src="Photos/logo.png" alt="skillMatch logo" style = "height: 45px; margin-top: 0px;">
+                <b>SkillMatch</b>
+            </div>
+
+            <nav style="text-align: right; list-style: none;">
+                <a href="index.html" ><strong>Home</strong></a>
+                <a href="skills_selction.html" >choose a coach</a>
+                <a href="" >My schedule</a>
+                <a href="" >Sign in</a>
+                <a href="" >Sing up</a>
+                <a href="" >Contact us</a>
+            </nav>
+        </header>
+        <div class="container">
+            <h1>SkillMatch</h1>
+            <div class="underline"></div>
+        </div>
+    </section>
+
+    <!-- the section for the body -->
+    <div class = "content">
+        <img src="Photos/squLogo.png" alt="squ logo">
+        <div >
+        <h1>About us</h1>
+        <p>
+            We are a dedicated group of students from Sultan Qaboos University,
+            passionate about leveraging technology to make learning more accessible 
+            and engaging. As part of our COMP3700 - Introduction to Web Computing course, 
+            we developed SkillMatch, a platform designed to connect learners with expert 
+            instructors in various skills, including coding, marketing, swimming, and more.
+
+            Our goal is to create an interactive, user-friendly, and efficient learning 
+            environment where individuals can find the right mentors to help them grow 
+            and succeed. We believe in the power of personalized education and strive to 
+            bridge the gap between learners and instructors through a seamless, 
+            technology-driven platform.
+            
+            At SkillMatch, we are committed to innovation, accessibility, and continuous 
+            learning. Join us on this journey to make skill development easier and more 
+            effective for everyone!
+        </p>
+        </div>
+    </div>
+    <!-- here is a table for  -->
+     <table border=2px>
+        <caption> Team Work </caption>
+        <tr><th>Nu.</th><th>ID</th><th>NAME</th></tr>
+        <tr><td>1</td><td>141783</td> <td>Almukhtar Hilal Saif Alhothil</td></tr>
+        <tr><td>2</td><td>140102</td> <td>Turky Ahmed Almuzahmi</td></tr>
+        <tr><td>3</td><td>140335</td> <td>Mohammed Qasim Mohammed AlDhahri</td></tr>
+     </table>
+     <br>
+     <footer>
+        <a href="contactUS.html" > contact us</a>
+        &copy; 2025 SkillMatch. All rights reserved.
+    </footer>
+    
+</body>
+</html>
