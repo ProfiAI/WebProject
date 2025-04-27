@@ -8,6 +8,28 @@
 
         <meta name="description" content="Sign in to SkillMatch to access your account">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script type="text/javascript">
+            function validateForm(){
+                var email = document.Login.email;
+                var pass = document.Login.password;
+
+                if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/) == -1){
+                    alert("Invalid email format");
+                    email.focus();
+                    return false;
+                }
+
+                if(pass.value.search(/\S{5,20}/) == -1){
+                    alert("Invalid password (must be 5-20 non-space characters)");
+                    pass.focus();
+                    return false;
+                }
+
+                document.Login.action = "mySchedule.html";
+                return true;
+            }
+        </script>
     </head>
 
 
@@ -16,35 +38,30 @@
         <ul class="nav nav-tabs nav-justified bg-warning p-3 ">
             <li class="nav-item">   <img src="logo.png" alt="SkillMatch Logo" width = 25%/> skillMatch  </li>
 
-            <li class="nav-item"><a class="nav-link " href="page1.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="skills.html">Choose a Coach</a> </li>
             <li class="nav-item"><a class="nav-link" href="mySchedule.html">My Schedule</a></li>
             <li class="nav-item"><a class="nav-link active" href="sign-in.html" ><strong>Sign In</strong></a> </li>
-            <li class="nav-item"><a class="nav-link" href="sign-up.html">Sign Up </li>
+            <li class="nav-item"><a class="nav-link" href="sign-up.html">Sign Up </a> </li>
         </ul> 
           
         <hr/>
 
-        
-        
-    
-    
-
         <div class="container p-2">
             <img src = "logo.png" width="15%"/>
-            <h1 style="color: navy; margin-left: 20px;">Sign-in</h1>
+            <p class="text-primary h1">Sign-in</p>
         </div>
 
 
         <div class="container-fluid p-5">
-            <form action="https://httpbin.org/get" method="get" class="large">
+            <form action="https://httpbin.org/get" method="get" class="large needs-validation form-control" onsubmit="return validateForm()">
                 <p>
                     <label>Email</label>
-                    <input type="email" name="email" placeholder="email" maxlength="20" required />
+                    <input type="email" name="email" placeholder="email" maxlength="20" class="form-control" required />
                 </p>
                 <p>
                     <label>Password</label>
-                    <input type="password" name="password" placeholder="password" maxlength="30"  required />
+                    <input type="password" name="password" placeholder="password" maxlength="30" class="form-control"  required />
                 </p>
 
                 <!-- to let it as a link -->
@@ -55,11 +72,10 @@
         </div>
         
 
-        <footer class="bg-dark text-white p-4 text-center">
+        <footer class="bg-dark text-white p-4">
             <a href="contactUS.html"> contact us</a>
             &copy; 2025 SkillMatch. All rights reserved.
         </footer>
-
           
     </body>
 
