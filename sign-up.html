@@ -47,14 +47,14 @@
                     return false;
                 }
 
-                if(country.value.search(/^([A-Za-z\s]{5,20})$/) == -1){
-                    alert("Invalid country (must be 5-20 letters or spaces)");
+                if(country.value.search(/^([A-Za-z\s]{3,20})$/) == -1){
+                    alert("Invalid country (must be 3-20 letters or spaces)");
                     country.focus();
                     return false;
                 }
 
 
-                document.Registration.action = "mySchedule.html";
+                document.Registration.action = "sign-in.html";
                 return true;
             }
 
