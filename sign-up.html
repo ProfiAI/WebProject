@@ -9,6 +9,57 @@
          <meta name="description" content="Create your SkillMatch account to access skill learning features.">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+
+         <script type="text/javascript">
+            function validateForm(){
+                var email = document.Registration.email;
+                var pass = document.Registration.password;
+                var confirmPass = document.Registration.confirm_password;
+                var age = document.Registration.age;
+                var country = document.Registration.country;
+
+
+
+
+                if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/)==-1){
+                    alert("Invalid email");
+                    email.focus();
+                    return false;
+                }
+
+
+                if(pass.value.search(/\S{5,20}/)==-1){
+                    alert("Invalid password");
+                    pass.focus();
+                    return false;
+                }
+
+                if(confirmPass.value.search(/\S{5,20}/)==-1){
+                    alert("Invalid password");
+                    confirmPass.focus();
+                    return false;
+                }
+
+                if (pass.value != confirmPass.value){
+                    alert("Password and Confirm Password do not match");
+                    pass.focus();
+                    return false;
+                }
+
+                if(country.value.search(/^([A-Za-z\s]{5,20})$/) == -1){
+                    alert("Invalid country (must be 5-20 letters or spaces)");
+                    country.focus();
+                    return false;
+                }
+
+
+                document.Registration.action = "mySchedule.html";
+                return true;
+            }
+
+         </script>
+
  
      </head>
  
@@ -33,26 +84,25 @@
                 <p class="text-primary h1">Sign-up</p>
             </div>
 
-                <form action="https://httpbin.org/get" method="get">
+                <form name="Registration" action="https://httpbin.org/get" method="get" class ="form-control needs-validation" onsubmit="return validateForm()">
                     <p>
-                        <label>Email: </label>
-                        <input type="email" name="email" placeholder="Enter your email" maxlength="30" required style="font-size:large;"/>
-                    </p>
-    
-    
-    
-                    <p>
-                        <label>Password: </label>
-                        <input type="password" name="password" placeholder="Create a password" maxlength="30" required style="font-size:large;"/>
-                    </p>
-                    <p>
-                        <label>Confirm Password: </label>
-                        <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="30" required style="font-size:large;"/>
+                        <label class="form-label">Email: </label>
+                        <input type="email" name="email" placeholder="Enter your email" maxlength="30" class="form-control" required/>
                     </p>
     
     
                     <p>
-                        <label>Your Age: </label><br/>
+                        <label class="form-label" >Password: </label>
+                        <input type="password" name="password" placeholder="Create a password" maxlength="30" class="form-control" required />
+                    </p>
+
+                    <p>
+                        <label class="form-label" >Confirm Password: </label>
+                        <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="30" class="form-control" required/>
+                    </p>
+    
+                    <p>
+                        <label class="form-label" >Your Age: </label><br/>
                         <input type="radio" name="age" value="0-15"> 0–15
                         <input type="radio" name="age" value="16-19" checked> 16–19
                         <input type="radio" name="age" value="20-29"> 20–29
@@ -61,8 +111,8 @@
     
     
                     <p>
-                        <label>Your Region: </label>
-                        <select name="region" style="font-size:large;" required>
+                        <label class="form-label" >Your Region: </label>
+                        <select name="region" class="form-select" required>
                             <option>Middle East</option>
                             <option>Southern Africa</option>
                             <option>Europe</option>
@@ -74,8 +124,8 @@
     
     
                     <p>
-                        <label>Country: </label>
-                        <input type="text" name="country" placeholder="Your country" style="font-size:large;"/>
+                        <label class="form-label" >Country: </label>
+                        <input type="text" name="country" placeholder="Your country"/>
                     </p>
     
                     <input type="submit" value="Register" class="btn btn-primary"/>
@@ -84,7 +134,7 @@
         </div>
  
  
-         <footer class="bg-dark text-white p-4">
+         <footer class="bg-dark text-white p-4 text-center">
             <a href="contactUS.html"> contact us</a>
             &copy; 2025 SkillMatch. All rights reserved.
         </footer>
