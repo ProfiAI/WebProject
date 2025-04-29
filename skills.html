@@ -68,68 +68,145 @@
 
 <!-- JS -->
 <script>
-const instructors = [
-  { name: "Ahmed", skill: "Swimming", img: "img1.jpeg", bio: "Certified swimming coach.", slots: [{ date: "2025-04-10", time: "10:00" }, { date: "2025-04-12", time: "14:00" }] },
-  { name: "Fatima", skill: "Web Development", img: "img2.webp", bio: "Full-stack developer.", slots: [{ date: "2025-04-11", time: "15:00" }, { date: "2025-04-13", time: "11:00" }] },
-  { name: "Yusuf", skill: "Marketing", img: "Oman-Muscat-Omani-man.jpg", bio: "Digital marketer.", slots: [{ date: "2025-04-09", time: "16:30" }, { date: "2025-04-14", time: "13:00" }] }
-];
-
-let currentIndex = 0;
-let selectedInstructors = [];
-let bookedClasses = [];
-
-document.getElementById("startBtn").addEventListener("click", () => {
-  const count = parseInt(document.getElementById("skillCountInput").value);
-  if (!count || count <= 0) return alert("Please enter a valid number.");
-  selectedInstructors = instructors.slice(0, count);
-  document.getElementById("skillPrompt").style.display = "none";
-  showProfile(currentIndex);
-});
-
-function showProfile(index) {
-  if (index >= selectedInstructors.length) {
-    localStorage.setItem("bookedClasses", JSON.stringify(bookedClasses));
-    window.location.href = "mySchedule.html";
-    return;
-  }
-
-  const inst = selectedInstructors[index];
-  if (!inst.slots.length) return (currentIndex++, showProfile(currentIndex));
-
-  document.getElementById("card-container").innerHTML = `
-    <div class="card p-4 text-center" id="profile-card">
-      <img src="${inst.img}" class="card-img-top mx-auto rounded-circle" alt="${inst.name}" style="width: 140px; height: 140px; object-fit: cover; border: 3px solid #007b8f;">
-      <div class="card-body">
-        <h5 class="card-title">${inst.name}</h5>
-        <p class="card-text">${inst.skill}</p>
-        <p class="text-muted small">${inst.bio}</p>
-        <button onclick="swipe('left')" class="btn btn-danger me-2">👎 Dislike</button>
-        <button onclick="swipe('right')" class="btn btn-success">👍 Like</button>
-      </div>
-    </div>
-  `;
-}
-
-function swipe(direction) {
-  const card = document.getElementById("profile-card");
-  if (!card) return;
-  card.classList.add(direction === "right" ? "slide-right" : "slide-left");
-
-  setTimeout(() => {
-    if (direction === "right") {
-      const inst = selectedInstructors[currentIndex];
-      const slot = inst.slots[0];
-      if (slot) {
-        bookedClasses.push({ instructor: inst.name, skill: inst.skill, date: slot.date, time: slot.time });
-        inst.slots.shift();
-        new bootstrap.Toast(document.getElementById('liveToast')).show();
-      }
+  // === Instructor and session data setup ===
+  
+  // Each instructor object includes name, skill, image, bio, and time slots
+  const instructors = [
+    {
+      name: "Ahmed",
+      skill: "Swimming",
+      img: "img1.jpeg",
+      bio: "Certified swimming coach.",
+      slots: [
+        { date: "2025-04-10", time: "10:00" },
+        { date: "2025-04-12", time: "14:00" }
+      ]
+    },
+    {
+      name: "Fatima",
+      skill: "Web Development",
+      img: "img2.webp",
+      bio: "Full-stack developer.",
+      slots: [
+        { date: "2025-04-11", time: "15:00" },
+        { date: "2025-04-13", time: "11:00" }
+      ]
+    },
+    {
+      name: "Yusuf",
+      skill: "Marketing",
+      img: "Oman-Muscat-Omani-man.jpg",
+      bio: "Digital marketer.",
+      slots: [
+        { date: "2025-04-09", time: "16:30" },
+        { date: "2025-04-14", time: "13:00" }
+      ]
     }
-    currentIndex++;
+  ];
+  
+  // === Application state variables ===
+  
+  let currentIndex = 0;               // Which instructor is currently displayed
+  let selectedInstructors = [];       // Array of instructors user wants to view
+  let bookedClasses = [];             // Stores confirmed bookings
+  
+  // Bootstrap toast instance (used for booking confirmation)
+  const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+  
+  // === Start button click handler ===
+  document.getElementById("startBtn").addEventListener("click", () => {
+    const count = parseInt(document.getElementById("skillCountInput").value);
+  
+    // Validate input: must be a positive number
+    if (!count || count <= 0) {
+      alert("Please enter a valid number.");
+      return;
+    }
+  
+    // Get only the number of instructors requested
+    selectedInstructors = instructors.slice(0, count);
+  
+    // Hide the input form
+    document.getElementById("skillPrompt").style.display = "none";
+  
+    // Display the first coach
     showProfile(currentIndex);
-  }, 500);
-}
-</script>
+  });
+  
+  // === Display current instructor's profile ===
+  function showProfile(index) {
+    // If we've shown all selected instructors, redirect to schedule page
+    if (index >= selectedInstructors.length) {
+      localStorage.setItem("bookedClasses", JSON.stringify(bookedClasses));
+      window.location.href = "mySchedule.html";
+      return;
+    }
+  
+    const inst = selectedInstructors[index];
+  
+    // Skip instructor if no time slots left
+    if (!inst.slots.length) {
+      currentIndex++;
+      showProfile(currentIndex);
+      return;
+    }
+  
+    // Inject the profile into the page
+    document.getElementById("card-container").innerHTML = `
+      <div class="card p-4 text-center" id="profile-card">
+        <img src="${inst.img}" class="card-img-top mx-auto rounded-circle" alt="${inst.name}"
+             style="width: 140px; height: 140px; object-fit: cover; border: 3px solid #007b8f;">
+        <div class="card-body">
+          <h5 class="card-title">${inst.name}</h5>
+          <p class="card-text">${inst.skill}</p>
+          <p class="text-muted small">${inst.bio}</p>
+          <button onclick="swipe('left')" class="btn btn-danger me-2">👎 Dislike</button>
+          <button onclick="swipe('right')" class="btn btn-success">👍 Like</button>
+        </div>
+      </div>
+    `;
+  }
+  
+  // === Swipe logic for Like or Dislike ===
+  function swipe(direction) {
+    const card = document.getElementById("profile-card");
+    if (!card) return;
+  
+    // Animate the card out of view
+    card.classList.add(direction === "right" ? "slide-right" : "slide-left");
+  
+    // Wait for animation to complete before proceeding
+    setTimeout(() => {
+      if (direction === "right") {
+        const inst = selectedInstructors[currentIndex];
+  
+        // If the coach has a slot, book the first one
+        if (inst && inst.slots.length > 0) {
+          const slot = inst.slots[0];
+  
+          // Save booking info
+          bookedClasses.push({
+            instructor: inst.name,
+            skill: inst.skill,
+            date: slot.date,
+            time: slot.time
+          });
+  
+          // Remove used time slot
+          inst.slots.shift();
+  
+          // Show confirmation toast
+          toast.show();
+        }
+      }
+  
+      // Move to next coach
+      currentIndex++;
+      showProfile(currentIndex);
+    }, 500); // animation delay
+  }
+  </script>
+  
 
 </body>
 </html>
