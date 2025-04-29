@@ -1,101 +1,182 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="description" content="SkillMatch - A platform connecting learners with coaches for personalized skill development.">
-    <title>SkillMatch - My Schedule</title>
-    
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillMatch – My Schedule</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+    }
+    header {
+      background-color: rgb(241, 167, 9);
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .logo img { height: 32px; margin-right: 10px; }
+    nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 500; }
+    nav a:hover { color: #006c8c; }
+    .hero {
+      background-image: url('img2.webp');
+      background-size: cover;
+      background-position: center;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    }
+    .section-title {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem;
+      color: #333;
+    }
+    table {
+      width: 85%;
+      margin: 2rem auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    table caption {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #007b8f;
+      margin-bottom: 1rem;
+    }
+    th, td {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    th {
+      background-color: rgb(241, 167, 9);
+      color: #333;
+    }
+    td {
+      background-color: #fdfdfd;
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      margin: 0 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-print {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .btn-clear {
+      background-color: #f44336;
+      color: white;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888;
+      margin: 3rem 0 1rem;
+    }
+  </style>
 </head>
-
-
-
-
 <body>
 
-  <ul class="nav nav-tabs nav-justified bg-warning p-3">
-    <li class="nav-item">   <a href="index.html"><img src="logo.png" alt="SkillMatch Logo" width = 25%/> skillMatch </a> </li>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="SkillMatch Logo" />
+    SkillMatch
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html">Choose a Coach</a>
+    <a href="mySchedule.html"><Strong>My Schedule</Strong></a>
+    <a href="sign-in.html">Sign In</a>
+    <a href="sign-up.html">Sign Up</a>
+    <a href="contactUS.html">Contact Us</a>
+  </nav>
+</header>
 
-    <li class="nav-item">  <a class="nav-link " href="index.html">Home</a></li>
-    <li class="nav-item">   <a class="nav-link" href="skills.html">Choose a Coach</a> </li>
-    <li class="nav-item">   <a class="nav-link active" href="mySchedule.html"><strong>My Schedule</strong></a></li>
-    <li class="nav-item"><a class="nav-link" href="Questionnaire.html">Questionnaire</a></li>
-    <li class="nav-item">   <a class= "nav-link" href="contactUS.html">Contact Us</a></li>
-    <li class="nav-item">   <a class="nav-link" href="sign-in.html" >Sign In</a> </li>
-    <li class="nav-item">   <a class="nav-link" href="sign-up.html">Sign Up</a> </li>
-</ul> 
-<hr/>
-
-<div class="container">
-
-
-    <div class="caption"> <h2>My Learning Schedule</h2> </div>
-
-    <table class = "table table-hover table-bordered m-5 text-center">
-        <caption> Schedule this Week</caption>
-
-        <tr class="bg-black text-white">
-            <th></th>
-            <th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th>
-        </tr>
-
-        <tr>
-            <th>8 AM</th>
-            <!-- spans 2 days with same time Sunday + Monday -->
-            <td rowspan="4">Hiking with Almukhtar</td>
-            <td>Speaking<br>with Almukhtar</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <!-- span 2 hours 8–9 AM -->
-            <td rowspan="2">Drawing<br>with Amjad</td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <th>9 AM</th>   <td></td><td>Editing<br>with Amjad</td><td></td><td></td><td></td>
-        </tr>
-
-        <tr> <!-- spans 2 hours -->
-            <th>10 AM</th>  <td></td><td></td><td></td><td rowspan="2">Swimming<br>with Mohamed</td><td></td><td></td>
-        </tr>
-
-        <tr><!--1 hour only -->
-            <th>11 AM</th>  <td></td><td></td><td></td><td>Web Dev<br>with Omar</td><td></td>
-        </tr>
-
-        <tr> <!-- spans 2 days SUN + MON -->
-            <th>12 PM</th>      <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
-        </tr>
-
-        <tr>  <!-- spans 2 hours: 1–2 PM -->
-            <th>1 PM</th>   <td rowspan="3">Horse Riding<br>with Mohamed</td><td></td><td></td><td></td><td></td><td rowspan="2">Problem Solving<br>with Amjad</td><td></td>
-        </tr>
-
-        <tr>    <th>2 PM</th>   <td></td><td></td><td></td><td></td><td></td>  </tr>
-
-        <tr> <!-- for two days THU + FRI -->
-            <th>3 PM</th>   <td></td><td></td><td></td><td colspan="2" rowspan="3">Competitive programming</td><td></td>   
-        </tr>
-
-        <tr>    <th>4 PM</th>   <td></td><td></td><td></td><td></td><td></td>     </tr>
-
-        <tr>    <th>5 PM</th>   <td></td><td></td><td></td><td></td><td></td>     </tr>
-
-        <tr>    <th>6 PM</th>   <td></td><td></td><td></td><td></td><td></td><td></td><td></td>     </tr>
-
-        <tr>    <th>7 PM</th>   <td></td><td></td><td></td><td></td><td></td><td></td><td></td>     </tr>
-    </table>
+<div class="hero">
+  My Schedule
 </div>
 
+<h2 class="section-title">Here are the classes you booked!</h2>
 
+<table id="scheduleTable">
+  <caption>Scheduled Sessions</caption>
+  <tr>
+    <th>Instructor</th>
+    <th>Skill</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+</table>
 
-<footer class="bg-dark text-white p-4 text-center">
-    <a href="contactUS.html"> contact us</a>
-    &copy; 2025 SkillMatch. All rights reserved.
+<div class="buttons">
+  <button class="btn btn-print" onclick="window.print()">🖨️ Print Schedule</button>
+  <button class="btn btn-clear" onclick="clearSchedule()">🗑️ Clear All</button>
+</div>
+
+<footer class="bg-dark text-white p-4">
+  <a href="contactUS.html">Contact Us</a> |
+  &copy; 2025 SkillMatch. All rights reserved.
 </footer>
 
+<script>
+// Load the booked classes
+const table = document.getElementById("scheduleTable");
+const bookedClasses = JSON.parse(localStorage.getItem("bookedClasses")) || [];
+
+if (bookedClasses.length === 0) {
+  const emptyRow = document.createElement("tr");
+  emptyRow.innerHTML = `<td colspan="4" style="padding:2rem; color:gray;">No classes booked yet.</td>`;
+  table.appendChild(emptyRow);
+} else {
+  bookedClasses.forEach(booking => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${booking.instructor}</td>
+      <td>${booking.skill}</td>
+      <td>${booking.date}</td>
+      <td>${booking.time}</td>
+    `;
+    table.appendChild(row);
+  });
+}
+
+// Clear schedule function
+function clearSchedule() {
+  if (confirm("Are you sure you want to clear your entire schedule?")) {
+    localStorage.removeItem("bookedClasses");
+    window.location.reload();
+  }
+}
+</script>
 
 </body>
 </html>
