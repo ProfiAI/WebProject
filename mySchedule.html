@@ -94,31 +94,50 @@
 
 <!-- JS -->
 <script>
-const tableBody = document.querySelector("#scheduleTable tbody");
-const bookedClasses = JSON.parse(localStorage.getItem("bookedClasses")) || [];
-
-if (bookedClasses.length === 0) {
-  const emptyRow = document.createElement("tr");
-  emptyRow.innerHTML = `<td colspan="4" class="text-center text-muted p-4">No classes booked yet.</td>`;
-  tableBody.appendChild(emptyRow);
-} else {
-  bookedClasses.forEach(booking => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${booking.instructor}</td>
-      <td>${booking.skill}</td>
-      <td>${booking.date}</td>
-      <td>${booking.time}</td>
-    `;
-    tableBody.appendChild(row);
-  });
-}
-
-function clearSchedule() {
-  localStorage.removeItem("bookedClasses");
-  location.reload();
-}
-</script>
+  // === Retrieve the table body where we'll insert rows ===
+  const tableBody = document.querySelector("#scheduleTable tbody");
+  
+  // === Retrieve all booked classes from localStorage ===
+  // If nothing is booked yet, use an empty array
+  const bookedClasses = JSON.parse(localStorage.getItem("bookedClasses")) || [];
+  
+  // === Handle Empty Case ===
+  // If the user has no bookings, show a placeholder row
+  if (bookedClasses.length === 0) {
+    const emptyRow = document.createElement("tr");
+    emptyRow.innerHTML = `
+      <td colspan="4" class="text-center text-muted p-4">
+        No classes booked yet.
+      </td>`;
+    tableBody.appendChild(emptyRow);
+  } else {
+    // === Loop through each booking and render it as a table row ===
+    bookedClasses.forEach(booking => {
+      const row = document.createElement("tr");
+  
+      // Fill in the booking details: name, skill, date, time
+      row.innerHTML = `
+        <td>${booking.instructor}</td>
+        <td>${booking.skill}</td>
+        <td>${booking.date}</td>
+        <td>${booking.time}</td>
+      `;
+  
+      // Add this row to the table
+      tableBody.appendChild(row);
+    });
+  }
+  
+  // === Clear Schedule Function ===
+  function clearSchedule() {
+    // Remove all bookings from localStorage
+    localStorage.removeItem("bookedClasses");
+  
+    // Reload the page to reflect the cleared schedule
+    location.reload();
+  }
+  </script>
+  
 
 </body>
 </html>
