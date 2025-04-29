@@ -11,27 +11,32 @@
 
         <script type="text/javascript">
             function validateForm(){
+                //get element by name to useful way
                 email = document.question.email
                 user = document.question.userName
                 text = document.question.textArea
 
+                // check validate email format 
                 if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/) == -1){
                     alert("Invalid email format");
                     email.focus();
                     return false;
                 }
                 
+                // check validate user name format => accept char and spases only
                 if(user.value.search(/^[A-Za-z\s]{3,15}$/) == -1 ){
                     alert("Invalid user name format");
                     user.focus();
                     return false;
                 }
 
+                // check text area format => accept char, spases, (.,?!) only
                 if (text.value.search(/^[A-Za-z0-9\s.,?!]{5,50}$/) == -1){
                     alert("Invalid your qustion or suggestion format");
                     return false;
                 }
 
+                // if is it valid then go to index page
                 document.question.action = "index.html";
                 return true;
             }
@@ -63,7 +68,7 @@
         </div>
 
         <div class="container-fluid p-5">
-            <form action="https://httpbin.org/get" name="question" method="get" class="large needs-validation form-control" onsubmit="return validateForm()">
+            <form action="https://httpbin.org/get" name="question" method="get" class="needs-validation form-control" onsubmit="return validateForm()">
 
                 <div class="p-3">
                     <label>Email</label>
@@ -82,7 +87,7 @@
 
                 <div class="p-3">
                     <label class="form-label">Which page had the problem?</label>
-                    <select class="form-select" required>
+                    <select class="form-select" name="page" required>
                         <option value="">-- select page --</option>
                         <option>Home page</option>
                         <option>Choose a Coach page</option>
@@ -91,8 +96,11 @@
                         <option>Sign-in page</option>
                         <option>Sign-up page</option>
                     </select>
+                </div>
 
-
+                <div class="p-3 form-check">
+                    <input class="form-check-input" type="checkbox" id="subscribe" name="subscribe">
+                    <label class="form-check-label" for="subscribe">Subscribe to get our updates</label>
                 </div>
 
 
