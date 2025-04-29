@@ -62,7 +62,17 @@
   </div>
 
   <h4 class="text-end me-4 mt-3">Total: <span id="totalCost">0</span> OMR</h4>
-
+  
+  <div class="row justify-content-end my-3">
+    <div class="col-md-4 text-end">
+      <label for="discountInput" class="form-label">Promo Code</label>
+      <div class="input-group">
+        <input type="text" id="discountInput" class="form-control" placeholder="Enter code">
+        <button class="btn btn-outline-primary" type="button" id="applyDiscountBtn">Apply Discount</button>
+      </div>
+    </div>
+  </div>
+  
   <div class="text-center mt-4">
     <button class="btn btn-success px-4 py-2" onclick="mockPay()">💳 Pay Now</button>
   </div>
@@ -76,43 +86,79 @@
 
 <!-- JS -->
 <script>
-const COST_PER_SESSION = 30;
-const bookings = JSON.parse(localStorage.getItem("bookedClasses")) || [];
-const tableBody = document.querySelector("#paymentTable tbody");
-const totalEl = document.getElementById("totalCost");
-let total = 0;
-
-if (bookings.length === 0) {
-  const row = document.createElement("tr");
-  row.innerHTML = `<td colspan="5" class="text-center text-muted p-4">No booked classes found.</td>`;
-  tableBody.appendChild(row);
-} else {
-  bookings.forEach(entry => {
-    const row = document.createElement("tr");
-    row.innerHTML = `
-      <td>${entry.instructor}</td>
-      <td>${entry.skill}</td>
-      <td>${entry.date}</td>
-      <td>${entry.time}</td>
-      <td>30</td>
-    `;
-    total += COST_PER_SESSION;
-    tableBody.appendChild(row);
-  });
-}
-
-totalEl.textContent = total;
-
-function mockPay() {
-  if (bookings.length === 0) {
-    alert("You don't have any bookings.");
-    return;
-  }
-  alert(`✅ Payment of ${total} OMR confirmed!\nThank you for using SkillMatch!`);
-  localStorage.removeItem("bookedClasses");
-  window.location.href = "index.html";
-}
-</script>
+    // Fixed cost per booked session
+    const COST_PER_SESSION = 30;
+    
+    // Get references to elements
+    const bookings = JSON.parse(localStorage.getItem("bookedClasses")) || [];
+    const tableBody = document.querySelector("#paymentTable tbody");
+    const totalEl = document.getElementById("totalCost");
+    const discountInput = document.getElementById("discountInput");
+    const discountBtn = document.getElementById("applyDiscountBtn");
+    
+    let total = 0;
+    let discountApplied = false;
+    
+    // If no bookings, show placeholder
+    if (bookings.length === 0) {
+      const row = document.createElement("tr");
+      row.innerHTML = `<td colspan="5" class="text-center text-muted p-4">No booked classes found.</td>`;
+      tableBody.appendChild(row);
+    } else {
+      bookings.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${entry.instructor}</td>
+          <td>${entry.skill}</td>
+          <td>${entry.date}</td>
+          <td>${entry.time}</td>
+          <td>${COST_PER_SESSION}</td>
+        `;
+        total += COST_PER_SESSION;
+        tableBody.appendChild(row);
+      });
+    }
+    
+    // Display total initially
+    updateTotal();
+    
+    // Handle discount application
+    discountBtn.addEventListener("click", () => {
+      const code = discountInput.value.trim().toLowerCase();
+    
+      if (discountApplied) {
+        alert("Discount already applied.");
+        return;
+      }
+    
+      if (code === "skill") {
+        // Apply 15% discount
+        total = total - (total * 0.15);
+        discountApplied = true;
+        updateTotal();
+        alert("✅ Discount applied: 15% off!");
+      } else {
+        alert("❌ Invalid discount code.");
+      }
+    });
+    
+    // Update total shown on the screen
+    function updateTotal() {
+      totalEl.textContent = total.toFixed(2); // show two decimals
+    }
+    
+    // Handle mock payment
+    function mockPay() {
+      if (bookings.length === 0) {
+        alert("You don't have any bookings.");
+        return;
+      }
+      alert(`✅ Payment of ${total.toFixed(2)} OMR confirmed!\nThank you for using SkillMatch!`);
+      localStorage.removeItem("bookedClasses");
+      window.location.href = "index.html";
+    }
+    </script>
+    
 
 </body>
 </html>
