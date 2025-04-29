@@ -4,7 +4,7 @@ body {
     padding: 0;
     font-family: Arial, sans-serif;
     overflow: hidden;
-    background-image: url("Photos/war.jpg");
+    background-image: url("war.jpg");
 }
 
 #game-container {
