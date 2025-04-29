@@ -79,6 +79,25 @@
         </table>
     <br>
 
+    <script>
+        function updateBanner() {
+            const companyName = "Acme Inc.";
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString(undefined, options);
+            const currentTime = now.toLocaleTimeString();
+            
+            const bannerText = `Welcome to the ${companyName} website! Today is ${currentDate}, and the time is ${currentTime}`;
+            document.getElementById('movingBanner').textContent = bannerText;
+        }
+        
+        // Update banner immediately
+        updateBanner();
+        
+        // Update banner every second to keep time current
+        setInterval(updateBanner, 1000);
+    </script>
+    
     <footer class="bg-dark text-white p-4">
         <a href="contactUS.html"> contact us</a>
         &copy; 2025 SkillMatch. All rights reserved.
