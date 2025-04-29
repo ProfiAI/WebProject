@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillMatch – Skill Selection</title>
-  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <style>
     body {
       margin: 0;
@@ -14,7 +12,6 @@
       background-color: #fdfdfd;
       color: #222;
     }
-
     header {
       background-color: rgb(241, 167, 9);
       border-bottom: 1px solid #ddd;
@@ -23,32 +20,17 @@
       justify-content: space-between;
       padding: 1rem 2rem;
     }
-
     .logo {
       display: flex;
       align-items: center;
       font-weight: bold;
       font-size: 1.3rem;
     }
-
-    .logo img {
-      height: 32px;
-      margin-right: 10px;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #006c8c;
-    }
-
+    .logo img { height: 32px; margin-right: 10px; }
+    nav a { margin-left: 20px; text-decoration: none; color: #333; font-weight: 500; }
+    nav a:hover { color: #006c8c; }
     .hero {
-      background-image: url(img2.webp);
+      background-image: url('img2.webp');
       background-size: cover;
       background-position: center;
       height: 180px;
@@ -60,13 +42,11 @@
       font-weight: bold;
       text-shadow: 0 2px 4px rgba(0,0,0,0.4);
     }
-
     .section-title {
       text-align: center;
       font-size: 1.2rem;
       margin: 2rem 0 1rem;
     }
-
     .coach-card {
       border: 1px solid #e1e1e1;
       padding: 2rem;
@@ -74,99 +54,144 @@
       border-radius: 10px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
       max-width: 400px;
-      margin: 0 auto;
+      margin: 1rem auto;
+      background: #fff;
+      transition: transform 0.5s ease, opacity 0.5s ease;
     }
-
-    .coach-card img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border: 3px solid #007b8f;
-    }
-
-    .coach-name {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #444;
-      margin-bottom: 0.3rem;
-    }
-
-    .coach-quote {
-      font-size: 0.95rem;
-      color: #666;
-      margin-bottom: 1rem;
-    }
-
-    .buttons {
-      margin-top: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.4rem;
-      margin: 0 10px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      color: white;
-      border: none;
-    }
-
-    .like-btn {
-      background-color: #4CAF50;
-    }
-
-    .dislike-btn {
-      background-color: #f44336;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: #888;
-      margin: 3rem 0 1rem;
-    }
+    .coach-card img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid #007b8f; }
+    .coach-name { font-weight: bold; font-size: 1.2rem; color: #444; margin-bottom: 0.3rem; }
+    .coach-quote { font-size: 0.95rem; color: #666; margin-bottom: 1rem; }
+    .buttons { margin-top: 1rem; }
+    .btn { display: inline-block; padding: 0.6rem 1.4rem; margin: 0 10px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.95rem; color: white; border: none; cursor: pointer; }
+    .like-btn { background-color: #4CAF50; }
+    .dislike-btn { background-color: #f44336; }
+    .slide-right { transform: translateX(400px); opacity: 0; }
+    .slide-left { transform: translateX(-400px); opacity: 0; }
+    footer { text-align: center; font-size: 0.85rem; color: #888; margin: 3rem 0 1rem; }
+    #skillPrompt { text-align: center; margin: 2rem auto; }
+    #skillPrompt input, #skillPrompt button { padding: 0.5rem; font-size: 1rem; margin: 0.5rem; }
   </style>
 </head>
 <body>
 
-<ul class="nav nav-tabs nav-justified bg-warning p-3 ">
-    <li class="nav-item">   <img src="logo.png" alt="SkillMatch Logo" width = 25%/> skillMatch  </li>
-
-    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-    <li class="nav-item"><a class="nav-link active" href="skills.html"> <strong>Choose a Coach</a></strong> </li>
-    <li class="nav-item"><a class="nav-link" href="mySchedule.html">My Schedule</a></li>
-    <li class="nav-item"><a class="nav-link" href="sign-in.html" >Sign In</a> </li>
-    <li class="nav-item"><a class="nav-link " href="sign-up.html">Sign Up </a> </li>
-</ul> 
-
- <hr/>
+<header>
+  <div class="logo">
+    <img src="logo.png" alt="SkillMatch Logo" />
+    SkillMatch
+  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="skills.html"><strong>Choose a Coach</strong></a>
+    <a href="mySchedule.html">My Schedule</a>
+    <a href="sign-in.html">Sign In</a>
+    <a href="sign-up.html">Sign Up</a>
+    <a href="contactUS.html">Contact Us</a>
+  </nav>
+</header>
 
 <div class="hero">
-  Problem Solving
+  Skill Selection
 </div>
 
 <p class="section-title">Please choose your coach to practice your new skill...</p>
 
-<div class="coach-card" style="background: #fff;"> 
-  <img src="img1.jpeg" alt="Coach Photo">
-  <div class="coach-name">Almukhtar</div>
-  <div class="coach-quote">web development </div>
-  
-  <div class="buttons">
-    <a href="#" class="btn dislike-btn">👎 Dislike</a>
-    <a href="#" class="btn like-btn">👍 Like</a>
-  </div>
+<div id="skillPrompt">
+  <h2>How many coaches would you like to view?</h2>
+  <input type="number" id="skillCountInput" min="1" max="10" />
+  <button id="startBtn" class="btn like-btn" style="background-color:#007b8f;">Start</button>
 </div>
 
+<div id="card-container"></div>
+
 <footer class="bg-dark text-white p-4">
-  <a href="contactUS.html"> contact us</a>
+  <a href="contactUS.html">Contact Us</a> |
   &copy; 2025 SkillMatch. All rights reserved.
 </footer>
 
+<script>
+// Coaches Data
+const instructors = [
+  { name: "Ahmed", skill: "Swimming", img: "img1.jpeg", bio: "Certified swimming coach with 5 years of experience.", slots: [{ date: "2025-04-10", time: "10:00" }, { date: "2025-04-12", time: "14:00" }] },
+  { name: "Fatima", skill: "Web Development", img: "img2.webp", bio: "Full-stack developer and coding mentor.", slots: [{ date: "2025-04-11", time: "15:00" }, { date: "2025-04-13", time: "11:00" }] },
+  { name: "Yusuf", skill: "Marketing", img: "img1.jpeg", bio: "Digital marketer specializing in brand growth.", slots: [{ date: "2025-04-09", time: "16:30" }, { date: "2025-04-14", time: "13:00" }] }
+];
+
+let currentIndex = 0;
+let selectedCount = 0;
+let selectedInstructors = [];
+let bookedClasses = [];
+
+const skillInput = document.getElementById("skillCountInput");
+const startBtn = document.getElementById("startBtn");
+const cardContainer = document.getElementById("card-container");
+
+startBtn.addEventListener("click", () => {
+  const count = parseInt(skillInput.value);
+  if (!count || count <= 0) {
+    alert("Please enter a valid number.");
+    return;
+  }
+  selectedCount = count;
+  selectedInstructors = instructors.slice(0, count);
+  document.getElementById("skillPrompt").style.display = "none";
+  showProfile(currentIndex);
+});
+
+function showProfile(index) {
+  if (index >= selectedInstructors.length) {
+    localStorage.setItem("bookedClasses", JSON.stringify(bookedClasses));
+    window.location.href = "mySchedule.html";
+    return;
+  }
+
+  const inst = selectedInstructors[index];
+  if (inst.slots.length === 0) {
+    currentIndex++;
+    showProfile(currentIndex);
+    return;
+  }
+
+  cardContainer.innerHTML = `
+    <div class="coach-card" id="profile-card">
+      <img src="${inst.img}" alt="${inst.name}">
+      <div class="coach-name">${inst.name}</div>
+      <div class="coach-quote">${inst.skill}</div>
+      <p style="font-size: 0.9rem; color: #666;">${inst.bio}</p>
+      <div class="buttons">
+        <a href="#" class="btn dislike-btn" onclick="swipe('left')">👎 Dislike</a>
+        <a href="#" class="btn like-btn" onclick="swipe('right')">👍 Like</a>
+      </div>
+    </div>
+  `;
+}
+
+function swipe(direction) {
+  const card = document.getElementById("profile-card");
+  if (!card) return;
+
+  card.classList.add(direction === "right" ? "slide-right" : "slide-left");
+
+  setTimeout(() => {
+    if (direction === "right") {
+      const likedInstructor = selectedInstructors[currentIndex];
+      if (likedInstructor && likedInstructor.slots.length > 0) {
+        const selectedSlot = likedInstructor.slots[0];
+
+        bookedClasses.push({
+          instructor: likedInstructor.name,
+          skill: likedInstructor.skill,
+          date: selectedSlot.date,
+          time: selectedSlot.time
+        });
+
+        likedInstructor.slots.splice(0, 1);
+      }
+    }
+    currentIndex++;
+    showProfile(currentIndex);
+  }, 500);
+}
+</script>
+
 </body>
 </html>
-
