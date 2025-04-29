@@ -13,7 +13,7 @@
                 email = document.contactUs.email
                 name = document.contactUs.fullName
                 text = document.contactUs.message
-                sub = document.contactUs.subject
+                subject = document.contactUs.subject
 
                // check validate email format 
                 if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/) == -1){
@@ -32,6 +32,13 @@
               // check text area format => accept char, spases, (.,?!) only
                 if (text.value.search(/^[A-Za-z0-9\s.,?!]{5,50}$/) == -1){
                     alert("Invalid your qustion or suggestion format");
+                    return false;
+                }
+
+                // check subject format => accept char, spases, (.,?!) only
+                if(subject.value.search(/^[A-Za-z0-9\s.,?!]{3,24}$/) == -1){
+                    alert("Invalid subject format");
+                    subject.focus();
                     return false;
                 }
 
