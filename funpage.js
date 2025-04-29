@@ -56,7 +56,7 @@ function createPlane() {
     
     // Create and append plane image
     const img = document.createElement('img');
-    img.src = 'Photos/F15.png'; // Path to plane image
+    img.src = 'F15.png'; // Path to plane image
     img.alt = 'plane';
     plane.appendChild(img);
     
