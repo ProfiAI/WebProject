@@ -7,183 +7,52 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-/*    <style type = "text/css">
-                /* Reset */
-        * {
-            margin: 0px;
-            padding: 0px;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        /* General Styles */
-        body {
-            background-color: #fff;
-            color: #333;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        div {margin: 0px;}
-
-        div.header {width:initial; 
-                    border: 1px groove  rgb(0, 0, 0);
-                    background-color: rgb(249, 251, 251);
-                    padding: 0px; 
-                    border-radius: 10px;
-                    align-items: center;}
-                    
-        a {color:rgb(0, 0, 0);
-            text-decoration: none; 
-            margin-left: 5px; }
-
-        div ul{ list-style: none; 
-                display: flex; 
-                gap: 10px;
-                float: right}
-
-        header {
-            background-color: rgb(241, 167, 9);
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1rem;
-        }
-
-
-        .logo img {
-            width: 30px;
-            height: 30px;
-            vertical-align: middle;
-            margin-right: 10px;
-            float: left
-        }
-
-        .logo span {
-            font-weight: bold;
-            color: #333;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .search-btn {
-            background-color: transparent;
-            border: none;
-            color: #333;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-
-        /* section skills it is photo */
-        .skills {
-            background: linear-gradient(rgba(0,0,0, 0.2),rgba(255, 255, 255, .7)), url('skills_cover-1.jpg');
-            background-size:cover;
-            background-position: center;
-            padding: 0px 0;
-            text-align: left;
-            height:300px;
-            background-color: rgba(171, 80, 80, 0.5); 
-        }
-
-        .skills h1 {
-            font-size: 48px;
-            color: rgb(15, 34, 71);
-            margin-bottom: 10px;
-            text-align: center;
-            vertical-align:middle;
-            margin-top: 50px;
-        }
-
-        .underline {
-            width: 100px;
-            height: 5px;
-            background-color: #fdd700;
-            margin: 10px auto;
-        }
-
-        /* body and the content */
-        .content {margin: 5px; display:inline; width:300px; border: 1px groove  rgb(0, 0, 0);
-            background-color: rgb(249, 251, 251);
-            padding: 0px; 
-            border-radius: 10px;}
-        .content img{height: 300px; float: left}
-        .content div{display:grid;}
-        .content h1{color:rgb(5, 83, 83)}
-
-        /* Table */
-        table{border:3px; background-color:rgb(241, 167, 9);}
-        table td{padding: 5px}
-        table caption{letter-spacing: 7px; font-weight: bold;}
-
-        /* footer */
-        #afoter{color:rgb(33, 136, 245); text-align: center;}
-    </style>
-*/
-</head>
-<body>
-    <!-- Header Section -->
-   <ul class="nav nav-tabs nav-justified bg-warning p-3 ">
-            <li class="nav-item">   <a href="index.html"><img src="logo.png" alt="SkillMatch Logo" width = 25%/> skillMatch </a> </li>
-
-            <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="skills.html">Choose a Coach</a> </li>
-            <li class="nav-item"><a class="nav-link" href="mySchedule.html">My Schedule</a></li>
-            <li class="nav-item"><a class="nav-link active" href="Questionnaire.html"><strong> Questionnaire </strong></a></li>
-            <li class="nav-item"><a class= "nav-link" href="contactUS.html">Contact Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="sign-in.html" >Sign In</a> </li>
-            <li class="nav-item"><a class="nav-link" href="sign-up.html">Sign Up </a> </li>
-    </ul> 
-    <section class="skills">
-<!--         <header style="display: flex; justify-content: space-between;">
-            <div style="align-items: center; display: flex">    
-                <img src="logo.png" alt="skillMatch logo" style = "height: 45px; margin-top: 0px;">
-                <b>SkillMatch</b>
-            </div>
-
-            <nav style="text-align: right; list-style: none;">
-                <a href="index.html" ><strong>Home</strong></a>
-                <a href="skills.html" >choose a coach</a>
-                <a href="mySchedule.html" >My schedule</a>
-                <a href="sign-in.html" >Sign in</a>
-                <a href="sign-up.html" >Sing up</a>
-                <a href="contactUS.html" >Contact us</a>
-            </nav>
-        </header> -->
         
-        <div class="container">
-            <h1>SkillMatch</h1>
-            <div class="underline"></div>
+
+</head>
+<body >
+
+    <ul class="nav nav-tabs justify-content-end bg-warning p-3 ">
+        <div class="container-fluid justify-content-end">
+            <a class="navbar-brand " href="index.html">
+              <img src="../Photos/logo.png" alt="skillmatch" width="40" class="d-inline-block align-text-top">SkillMatch
+            </a>
         </div>
-    </section>
+
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="skills.html">Choose a Coach</a> </li>
+        <li class="nav-item"><a class="nav-link" href="mySchedule.html">My Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" href="Questionnaire.html">Questionnaire</a></li>
+
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              MENU
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <li><a class="dropdown-item" href="fungame.html">typing game</a></li>
+              <li><a class="dropdown-item"  href="contactUS.html">Contact Us</a></li>
+              <li><a class="dropdown-item" href="sign-in.html" >Sign In</a> </li>
+              <li><a class="dropdown-item" href="sign-up.html">Sign Up </a> </li>
+            </ul>
+          </div>
+    </ul> 
+    
+        <div class="container-fluid ">
+            
+            <h1 class = "display-2 text-muted "> <img src="../Photos/skills_cover-1.jpg" class="" alt="skillMatch"> SkillMatch</h1>
+            <div class=""></div>
+        </div>
 
     <!-- the section for the body -->
-    <div class = "content">
-        <img src="squLogo.png" alt="squ logo">
-        <div >
-        <h1>About us</h1>
-        <p>
+    <div class = "container-fluid">
+        <img src="../photos/squLogo.png" alt="squ logo" width = "400" class = "rounded-thumbnail float-start">
+        <div class = "">
+        <h1 class = "display-4 text-muted" >About us</h1>
+        <p class = "p-1">
             We are a dedicated group of students from Sultan Qaboos University,
             passionate about leveraging technology to make learning more accessible 
             and engaging. As part of our COMP3700 - Introduction to Web Computing course, 
-            we developed SkillMatch, a platform designed to connect learners with expert 
+            we developed <kbd class = "bg-info">SkillMatch</kbd>, a platform designed to connect learners with expert 
             instructors in various skills, including coding, marketing, swimming, and more.
 
             Our goal is to create an interactive, user-friendly, and efficient learning 
@@ -198,16 +67,19 @@
         </p>
         </div>
     </div>
-    <!-- here is a table for  -->
-     <table border=2px>
-        <caption> Team Work </caption>
-        <tr><th>Nu.</th><th>ID</th><th>NAME</th></tr>
-        <tr><td>1</td><td>141783</td> <td>Almukhtar Hilal Saif Alhothil</td></tr>
-        <tr><td>2</td><td>140102</td> <td>Turky Ahmed Almuzahmi</td></tr>
-        <tr><td>3</td><td>140335</td> <td>Mohammed Qasim Mohammed AlDhahri</td></tr>
-     </table>
-     <br>
-     <footer class="bg-dark text-white p-4 text-center">
+   
+    <br>
+    <br>
+    <h3 class = "center"> Team Work</h3>
+    <table class = "table table-striped" width= "400" style="width:50%;">
+        <tr class = "table-primary"><th>Nu.</th><th>ID</th><th>NAME</th></tr>
+        <tr class = "table-success"><td>1</td><td>141783</td> <td>Almukhtar Hilal Saif Alhothil</td></tr>
+        <tr class = "table-danger"><td>2</td><td>140102</td> <td>Turky Ahmed Almuzahmi</td></tr>
+        <tr class = "table-warning"><td>3</td><td>140335</td> <td>Mohammed Qasim Mohammed AlDhahri</td></tr>
+        </table>
+    <br>
+
+    <footer class="bg-dark text-white p-4">
         <a href="contactUS.html"> contact us</a>
         &copy; 2025 SkillMatch. All rights reserved.
     </footer>
