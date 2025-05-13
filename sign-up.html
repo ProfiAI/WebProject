@@ -9,6 +9,11 @@
          <meta name="description" content="Create your SkillMatch account to access skill learning features.">
          <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+         <style>
+            span{
+                color: red;
+            }
+         </style>
 
 
          <script type="text/javascript">
@@ -19,42 +24,49 @@
                 var age = document.Registration.age;
                 var country = document.Registration.country;
 
+                // clear previous message
+                document.getElementById("invalidEmail").innerText = "";
+                document.getElementById("invalidPass").innerText = "";
+                document.getElementById("invalidConfirmPass").innerText = "";
+                document.getElementById("missMatch").innerText = "";
+                document.getElementById("invalidCountry").innerText = "";
+
 
 
 
                 if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/)==-1){
-                    alert("Invalid email");
+                    document.getElementById("invalidEmail").innerText = "invalid Email";
                     email.focus();
                     return false;
                 }
 
 
                 if(pass.value.search(/\S{5,20}/)==-1){
-                    alert("Invalid password");
+                    document.getElementById("invalidPass").innerText = "Invalid password";
                     pass.focus();
                     return false;
                 }
 
                 if(confirmPass.value.search(/\S{5,20}/)==-1){
-                    alert("Invalid password");
+                    document.getElementById("invalidConfirmPass").innerText = "invalid Confirm Password";
                     confirmPass.focus();
                     return false;
                 }
 
                 if (pass.value != confirmPass.value){
-                    alert("Password and Confirm Password do not match");
+                    document.getElementById("missMatch").innerText = "Password and Confirm Password does not match";
                     pass.focus();
                     return false;
                 }
 
                 if(country.value.search(/^([A-Za-z\s]{3,20})$/) == -1){
-                    alert("Invalid country (must be 3-20 letters or spaces)");
+                    document.getElementById("invalidCountry").innerText ="Invalid country (must be 3-20 letters or spaces)";
                     country.focus();
                     return false;
                 }
 
-
-                document.Registration.action = "sign-in.html";
+                // need to change here to php file
+                document.Registration.action = "signup.php";   
                 return true;
             }
 
@@ -97,21 +109,25 @@
                 <p class="text-primary h1">Sign-up</p>
             </div>
 
-                <form name="Registration" action="https://httpbin.org/get" method="get" class ="form-control needs-validation" onsubmit="return validateForm()">
+                <form name="Registration" action="signup.php" method="get" class ="form-control needs-validation" onsubmit="return validateForm()">
                     <p>
                         <label class="form-label">Email: </label>
                         <input type="email" name="email" placeholder="Enter your email" maxlength="30" class="form-control" required/>
+                        <span id="invalidEmail"></span>
                     </p>
     
     
                     <p>
                         <label class="form-label" >Password: </label>
                         <input type="password" name="password" placeholder="Create a password" maxlength="30" class="form-control" required />
+                        <span id= "invalidPass"></span>
                     </p>
 
                     <p>
                         <label class="form-label" >Confirm Password: </label>
                         <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="30" class="form-control" required/>
+                        <span id= "invalidConfirmPass"></span>
+                        <span id="missMatch"></span>
                     </p>
     
                     <p>
@@ -139,6 +155,7 @@
                     <p>
                         <label class="form-label" >Country: </label>
                         <input type="text" name="country" placeholder="Your country"/>
+                        <span id="invalidCountry"></span>
                     </p>
     
                     <input type="submit" value="Register" class="btn btn-primary"/>
