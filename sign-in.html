@@ -14,19 +14,23 @@
                 var email = document.Login.email;
                 var pass = document.Login.password;
 
+                // clear previous message
+                document.getElementById("invalidEmail").innerText = "";
+                document.getElementById("invalidPass").innerText = "";
+
                 if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/) == -1){
-                    alert("Invalid email format");
+                    document.getElementById("invalidEmail").innerText = "Invalid email format";
                     email.focus();
                     return false;
                 }
 
                 if(pass.value.search(/\S{5,20}/) == -1){
-                    alert("Invalid password (must be 5-20 non-space characters)");
+                    document.getElementById("invalidPass").innerText = "Invalid password (must be 5-20 non-space characters)";
                     pass.focus();
                     return false;
                 }
 
-                document.Login.action = "mySchedule.html";
+                document.Login.action = "signin.php";
                 return true;
             }
         </script>
@@ -68,14 +72,16 @@
 
 
         <div class="container-fluid p-5">
-            <form action="https://httpbin.org/get" method="get" class="large needs-validation form-control" onsubmit="return validateForm()">
+            <form action="signin.php" method="post" class="large needs-validation form-control" onsubmit="return validateForm()">
                 <p>
                     <label>Email</label>
                     <input type="email" name="email" placeholder="email" maxlength="20" class="form-control" required />
+                    <span id="invalidEmail"></span>
                 </p>
                 <p>
                     <label>Password</label>
                     <input type="password" name="password" placeholder="password" maxlength="30" class="form-control"  required />
+                    <span id= "invalidPass"></span>
                 </p>
 
                 <!-- to let it as a link -->
