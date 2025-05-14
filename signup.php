@@ -5,7 +5,9 @@
 
     </head>
     <body>
-        <div class="container-fluid" class="p-5 m-5">
+        <div class="container" class="p-5 m-5">
+
+            <br><br><br>
 
             <p>
                 <?php
