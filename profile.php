@@ -129,20 +129,20 @@
                 <form name="Registration" method="post" class ="form-control needs-validation" onsubmit="return validateForm(event)">
                     <p>
                         <label class="form-label">Email: </label>
-                        <input type="email" name="email" placeholder="Enter your email" maxlength="30" class="form-control" required/>
+                        <input type="email" name="email" placeholder="Enter your email" maxlength="50" class="form-control" required/>
                         <span id="invalidEmail"></span>
                     </p>
     
     
                     <p>
                         <label class="form-label" >Password: </label>
-                        <input type="password" name="password" placeholder="Create a password" maxlength="30" class="form-control" required />
+                        <input type="password" name="password" placeholder="Create a password" maxlength="50" class="form-control" required />
                         <span id= "invalidPass"></span>
                     </p>
 
                     <p>
                         <label class="form-label" >Confirm Password: </label>
-                        <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="30" class="form-control" required/>
+                        <input type="password" name="confirm_password" placeholder="Repeat password" maxlength="50" class="form-control" required/>
                         <span id= "invalidConfirmPass"></span>
                         <span id="missMatch"></span>
                     </p>
