@@ -59,6 +59,18 @@
                 // if is it valid then go to index page
                 return true;
             }
+
+
+            function validatebody(){
+                var text = document.question.Text;
+                document.getElementById("invalidText").innerText = "";
+                // check text area format => accept char, spases, (.,?!) only
+                if (text.value.trim().search(/^[A-Za-z0-9\s.,?!]{5,50}$/) == -1){
+                        document.getElementById("invalidText").innerText = "Invalid your qustion or suggestion format";
+                        return false;
+                    }
+                return true;
+            }
         </script>
         
     </head>
@@ -115,7 +127,7 @@
 
                 <div class="p-3">
                     <label class="form-label">your qustion or suggestion</label>
-                    <textarea class="form-control" name = "Text" required></textarea>
+                    <textarea class="form-control" name = "Text" onchange="validatebody();" required></textarea>
                     <span id="invalidText"></span>
                 </div>
 
@@ -145,10 +157,6 @@
             </form>
         </div>
         
-
-
-
-
 
         <footer class="bg-dark text-white p-4">
             <a href="contactUS.html"> contact us</a>
