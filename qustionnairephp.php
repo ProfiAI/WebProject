@@ -6,7 +6,7 @@
 
             $userName = "";
             $email = "";
-            $Text = "";
+            $text = "";
             $page = "";
             $subscribe ="";
 
@@ -18,7 +18,9 @@
                 $email = test_input($_GET["email"]);
                 $text = test_input($_GET["Text"]);
                 $page = test_input($_GET["page"]);
-                $subscribe = test_input($_GET["subscribe"]);
+
+                $subscribe = isset($_GET["subscribe"]);
+
                 
 
             }
@@ -31,14 +33,16 @@
 
 
             echo "  <table border=\"1\" cellpadding=\"10\">
-            <a href = \"index.html\"> go to Home page</a>
                         <tr>    <th>Full Name</th>              <td>".$userName."</td>   </tr>
                         <tr>    <th>email</th>           <td>".$email."</td>   </tr>
                         <tr>    <th>Questionnaire</th>   <td>".$text."</td>   </tr>
                         <tr>    <th>page</th>                <td>".$page."</td>   </tr>
-                        <tr>    <th>subscribe</th>      <td>".$subscribe."</td>    </tr>;
+                        <tr>    <th>subscribe</th>      <td>".$subscribe."</td>    </tr>
                         
                     </table>";
+
+
+            print("<a href = \"index.html\"> go to Home page</a>");
 
         ?>
     </body>
