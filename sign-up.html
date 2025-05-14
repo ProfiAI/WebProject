@@ -33,37 +33,46 @@
 
 
 
+                var incorrect = false;
+
+
 
                 if(email.value.search(/\w{2,20}@\w{2,10}\.\w{2,5}/)==-1){
                     document.getElementById("invalidEmail").innerText = "invalid Email";
                     email.focus();
-                    return false;
+                    incorrect = true;
                 }
 
 
                 if(pass.value.search(/\S{5,20}/)==-1){
                     document.getElementById("invalidPass").innerText = "Invalid password";
                     pass.focus();
-                    return false;
+                    incorrect = true;
                 }
 
                 if(confirmPass.value.search(/\S{5,20}/)==-1){
                     document.getElementById("invalidConfirmPass").innerText = "invalid Confirm Password";
                     confirmPass.focus();
-                    return false;
+                    incorrect = true;
                 }
 
                 if (pass.value != confirmPass.value){
                     document.getElementById("missMatch").innerText = "Password and Confirm Password does not match";
                     pass.focus();
-                    return false;
+                    incorrect = true;
                 }
 
                 if(country.value.search(/^([A-Za-z\s]{3,20})$/) == -1){
                     document.getElementById("invalidCountry").innerText ="Invalid country (must be 3-20 letters or spaces)";
                     country.focus();
-                    return false;
+                    incorrect = true;
                 }
+
+
+                if (incorrect){
+                  return false;
+                }
+                
 
                 // need to change here to php file
                 document.Registration.action = "signup.php";   
