@@ -44,7 +44,7 @@
                 }
 
 
-              // check text area format => accept char, spases, (.,?!) only
+                // check text area format => accept char, spases, (.,?!) only
                 if (text.value.search(/^[A-Za-z0-9\s.,?!]{5,50}$/) == -1){
                     document.getElementById("messageError").innerText = "Invalid your qustion or suggestion format";
                     incorrect = true;
@@ -67,6 +67,20 @@
                 document.contactUs.action = "contactUsphp.php";
                 return true;
             }
+
+          function validateMessage(){
+            var text = document.contactUs.message;
+            document.getElementById("messageError").innerText = "";
+            // check text area format => accept char, spases, (.,?!) only
+            if (text.value.search(/^[A-Za-z0-9\s.,?!]{5,50}$/) == -1){
+                    document.getElementById("messageError").innerText = "Invalid your qustion or suggestion format";
+                    return false;
+                }
+            return true;
+          }
+
+
+      
     
    </script>
 </head>
@@ -130,7 +144,7 @@
       
     <div class="p-4">
       <label for="message">Message</label>
-      <textarea class="form-control" name="message" placeholder="Write your message..." required></textarea>
+      <textarea class="form-control" name="message" placeholder="Write your message..." onchange="validateMessage()" required></textarea>
       <span id="messageError"></span>
     </div>
       
