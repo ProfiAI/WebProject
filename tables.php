@@ -7,12 +7,12 @@
     //1- Create DB connection
     $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
-    // 2-Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error() . "<br>");
-    }else{
-        echo "you are connected <br>";
-    }
+    // // 2-Check connection
+    // if (!$conn) {
+    //     die("Connection failed: " . mysqli_connect_error() . "<br>");
+    // }else{
+    //     echo "you are connected <br>";
+    // }
     
     $sql= "CREATE TABLE IF NOT EXISTS `myDataBase`.`users` (
     `id` INT NOT NULL AUTO_INCREMENT,
@@ -43,24 +43,21 @@ CREATE TABLE IF NOT EXISTS `myDataBase`.`contact us` (
     ENGINE = InnoDB;
 
 ";
-
-    // $result = mysqli_query($conn, $sql); //4-execute query
-
-
-    if (mysqli_multi_query($conn, $sql)) {
-        do {
-            // Flush results (important for multiple queries)
-            if ($result = mysqli_store_result($conn)) {
-                mysqli_free_result($result);
-            }
-        } while (mysqli_next_result($conn));
+    // To check the connection
+    // if (mysqli_multi_query($conn, $sql)) {
+    //     do {
+    //         // Flush results (important for multiple queries)
+    //         if ($result = mysqli_store_result($conn)) {
+    //             mysqli_free_result($result);
+    //         }
+    //     } while (mysqli_next_result($conn));
         
-        echo "All tables created successfully!";
-    } else {
-        echo "Error creating tables: " . mysqli_error($conn);
-    }
+    //     echo "All tables created successfully! <b>";
+    // } else {
+    //     echo "Error creating tables: " . mysqli_error($conn);
+    // }
     
-    mysqli_close($conn); //5- close DB connection
+    // mysqli_close($conn); // we are not closing it because we want to use it in other files.
 
 ?>
 
