@@ -11,7 +11,8 @@
 
             <p>
                 <?php
-
+                    include("tables.php");
+                    
                     $email = "";
                     $password = "";
                     $confirm_password = "";
@@ -52,6 +53,18 @@
 
                     echo displayTable($_POST);
 
+                    $sql = "INSERT INTO users (email, password, age, region, country) VALUES 
+                    ('$email', '$password', '$age', '$region', '$country');";
+
+                    // this just to check
+                    try{
+                        if(mysqli_query($conn, $sql)){
+                            echo "<p> you are registered successfuly! </p>";
+                        }
+                    }catch(mysqli_sql_exception){
+                        echo "<p> you are already registered </p>";
+                    }
+                    mysqli_close($conn);
                 ?>
             </p>
 
