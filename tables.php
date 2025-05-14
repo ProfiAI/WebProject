@@ -27,12 +27,15 @@
 
 
 CREATE TABLE IF NOT EXISTS `myDataBase`.`questionnaire` (
+    `id` INT NOT NULL AUTO_INCREMENT,
     `email` VARCHAR(50) NOT NULL,
     `username` VARCHAR(25) NOT NULL,
     `suggestion` TEXT NOT NULL,
-    `page_problem` VARCHAR(100) NOT NULL,  -- Changed from 'page problem'
-    `subscription` BOOLEAN NOT NULL DEFAULT FALSE -- Corrected column name and set default
-) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
+    `page_problem` VARCHAR(100) NOT NULL,
+    `subscription` BOOLEAN NOT NULL DEFAULT FALSE,
+    `submission_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `myDataBase`.`contact us` (
     `full name` VARCHAR(50) NOT NULL ,
