@@ -1,45 +1,64 @@
 <html>
+    <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    </head>
     <body>
+        <div class="container-fluid" class="p-5 m-5">
 
+            <p>
+                <?php
+
+                    $email = "";
+                    $password = "";
+                    $confirm_password = "";
+                    $age = "";
+                    $region = "";
+                    $country = "";
+
+
+                    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+
+                        $email = test_input($_POST["email"]);
+                        $password = test_input($_POST["password"]);
+                        $confirm_password = test_input($_POST["confirm_password"]);
+                        $age = test_input($_POST["age"]);
+                        $region = test_input($_POST["region"]);
+                        $country = test_input($_POST["country"]);
+
+                    }
+
+                    function test_input($data) {
+                        $data = trim($data);
+                        $data = htmlspecialchars($data);
+                        return $data;
+                    }
+
+
+                    function displayTable($data){
+                        $display = "";
+                        $display .= "  <table class='table table-hover table-striped' border=\"1\" cellpadding=\"10\">";
+
+                        foreach ($data as $key => $value) {
+                            $display .= "<tr>    <th>$key</th>              <td>".$value."</td>   </tr>";
+                        }
+                        $display .= "</table>";
+
+                        return $display;
+                    }
+
+                    echo displayTable($_POST);
+
+                ?>
+            </p>
+
+            <p class = "p-3">
+                <a class="btn btn-primary" href = "index.html"> go to Home page</a>
+            </p>
+        </div>
             
-        <?php
-
-            $email = "";
-            $password = "";
-            $confirm_password = "";
-            $age = "";
-            $region = "";
-            $country = "";
 
 
-            if ($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                $email = test_input($_POST["email"]);
-                $password = test_input($_POST["password"]);
-                $confirm_password = test_input($_POST["confirm_password"]);
-                $age = test_input($_POST["age"]);
-                $region = test_input($_POST["region"]);
-                $country = test_input($_POST["country"]);
-
-            }
-
-            function test_input($data) {
-                $data = trim($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
-
-
-            echo "  <table border=\"1\" cellpadding=\"10\">
-            <a href = \"index.html\"> go to Home pagex</a>
-                        <tr>    <th>Email</th>              <td>".$email."</td>   </tr>
-                        <tr>    <th>Password</th>           <td>".$password."</td>   </tr>
-                        <tr>    <th>Confirm password</th>   <td>".$confirm_password."</td>   </tr>
-                        <tr>    <th>Age</th>                <td>".$age."</td>   </tr>
-                        <tr>    <th>Region</th>             <td>".$region."</td>   </tr>
-                        <tr>    <th>Country</th>            <td>".$country."</td>   </tr>
-                    </table>";
-
-        ?>
     </body>
 </html>
