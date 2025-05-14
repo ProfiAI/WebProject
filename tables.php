@@ -30,9 +30,8 @@ CREATE TABLE IF NOT EXISTS `myDataBase`.`questionnaire` (
     `email` VARCHAR(50) NOT NULL,
     `username` VARCHAR(25) NOT NULL,
     `suggestion` TEXT NOT NULL,
-    `page_problem` VARCHAR(10) NOT NULL,  -- Changed from 'page problem'
-    `subscription` BOOLEAN NOT NULL DEFAULT FALSE,  -- Corrected column name and set default
-    UNIQUE (`email`)
+    `page_problem` VARCHAR(100) NOT NULL,  -- Changed from 'page problem'
+    `subscription` BOOLEAN NOT NULL DEFAULT FALSE -- Corrected column name and set default
 ) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `myDataBase`.`contact us` (
