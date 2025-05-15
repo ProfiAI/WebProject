@@ -10,16 +10,38 @@
         <?php
             include("tables.php");
 
+
+            class ContactData {
+                public $data;
+            
+                function __construct($get) {
+                    $this->data = ["Full Name" => $get["fullName"],
+                        "Email" => $get["email"],
+                        "Subject" => $get["subject"],
+                        "Message" => $get["message"]];
+                }
+
+                
+            
+                function getTableData() {
+                    return $this->data;}
+
+                
+                function getDBValues() {
+                    return [$this->data["Full Name"],
+                        $this->data["Email"],
+                        $this->data["Subject"],
+                        $this->data["Message"]];
+                }
+            }
+
             $fullName = "";
             $email = "";
             $subject = "";
             $message = "";
 
             if ($_SERVER["REQUEST_METHOD"] == "GET" && !empty($_GET)){
-                $fullName = test_input($_GET["fullName"]);
-                $email = test_input($_GET["email"]);
-                $subject = test_input($_GET["subject"]);
-                $message = test_input($_GET["message"]);
+                $contact = new ContactData($_GET);
             }
 
             function test_input($data) {
@@ -41,10 +63,12 @@
             }
 
             if (!empty($_GET)) {
-                echo displayTable($_GET);
+                echo displayTable($contact->getTableData());
 
-                $sql = "INSERT INTO `contact us` (`full name`, email, subject, message) VALUES 
-                ('$fullName', '$email', '$subject', '$message')";
+                
+                list($fullName, $email, $subject, $message) = $contact->getDBValues();
+                $sql = "INSERT INTO `contact us` (`full name`, email, subject, message) 
+                        VALUES ('$fullName', '$email', '$subject', '$message')";
 
                 try {
                     if(mysqli_query($conn, $sql)){
